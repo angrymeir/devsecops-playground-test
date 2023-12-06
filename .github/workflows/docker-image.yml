@@ -39,7 +39,7 @@ jobs:
           tags: ${{ env.TEST_TAG }}
           
       - name: Trivy Scan
-        uses: aquasecurity/trivy-action@v0.15.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.TEST_TAG }}
           exit-code: 1
