@@ -8,8 +8,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  TEST_TAG: ${{ REGISTRY }}/${{ IMAGE_NAME}:test
-  LATEST_TAG: ${{ REGISTRY }}/${{ IMAGE_NAME}:latest
+  TEST_TAG: ${{ var.REGISTRY }}/${{ var.IMAGE_NAME}:test
+  LATEST_TAG: ${{ var.REGISTRY }}/${{ var.IMAGE_NAME}:latest
 
 jobs:
   docker:
