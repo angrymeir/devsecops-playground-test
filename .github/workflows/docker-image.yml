@@ -38,10 +38,18 @@ jobs:
           load: true
           tags: ${{ env.TEST_TAG }}
           
-      - name: Test
-        run: |
-          #docker run --rm ${{ env.TEST_TAG }}          
-          echo "Test"
+      - name: Trivy Scan
+        uses: aquasecurity/trivy-action@v0.15.0
+        with:
+          image-ref: ${{ env.TEST_TAG }}
+          exit-code: 1
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      
+      - name: Upload SARIF results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: trivy-results.sarif
           
       - name: Build and push
         uses: docker/build-push-action@v5
