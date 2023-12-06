@@ -8,8 +8,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  TEST_TAG: $REGISTRY/$IMAGE_NAME:test
-  LATEST_TAG: $REGISTRY/$IMAGE_NAME:latest
+  TEST_TAG: ghcr.io/${{ github.repository }}:test
+  LATEST_TAG: ghcr.io/${{ github.repository }}:latest
 
 jobs:
   docker:
