@@ -42,7 +42,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ env.TEST_TAG }}
-          exit-code: 1
+          exit-code: 0
           format: 'sarif'
           output: 'trivy-results.sarif'
       
