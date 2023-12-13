@@ -19,7 +19,8 @@ resource "aws_security_group" "allow_all_traffic" {
 
   ingress {
     description = "Traffic from worldwide"
-    cidr_blocks = [var.cidr]
+    #cidr_blocks = [var.cidr]
+    cidr_blocks = ["127.0.0.1/32"]
     protocol    = "-1" # Equivalent to ALL protocols
     from_port   = "0"
     to_port     = "0" # Equivalent to 65535
@@ -27,7 +28,8 @@ resource "aws_security_group" "allow_all_traffic" {
 
   egress {
     description = "Traffic to worldwide"
-    cidr_blocks = [var.cidr]
+    #cidr_blocks = [var.cidr]
+    cidr_blocks = ["127.0.0.1/32"]
     protocol    = "-1" # Equivalent to ALL protocols
     from_port   = "0"
     to_port     = "0" # Equivalent to 65535
