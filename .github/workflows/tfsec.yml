@@ -10,6 +10,9 @@ jobs:
   tfsec-job:
     runs-on: ubuntu-latest
     name: Tfsec
+    permissions:
+      contents: read
+      security-events: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -32,4 +35,3 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with: 
           sarif_file: tfsecres/results.sarif
-          
